@@ -14,6 +14,9 @@
   <ul>
     <% skills.forEach(skill => { %>
       <li>
+        <form action="/skills/<%= skill._id %>?_method=DELETE" class="delete-form" method="POST">
+          <button type="submit">X</button>
+        </form>
         <a href="/skills/<%= skill._id %> "><%= skill.text %></a>
         -
         <%= skill.acquired ? 'Acquired' : 'Not acquired... Yet' %> 

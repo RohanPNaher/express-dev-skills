@@ -23,8 +23,13 @@ function show(req, res) {
 }
 
 function create(req, res){
-  console.log(req.body)
   skillDb.create(req.body, (error, skill) => {
+    res.redirect('/skills')
+  })
+}
+
+function deleteSkill(req, res){
+  skillDb.findByIdAndDelete(req.params.id, (error, skill) => {
     res.redirect('/skills')
   })
 }
@@ -33,5 +38,6 @@ export {
   index,
   newSkill as new,
   show,
-  create
+  create,
+  deleteSkill as delete
 }
